@@ -1,4 +1,4 @@
-![Docker Pulls](https://img.shields.io/docker/pulls/modem7/hastebin) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/modem7/hastebin) [![Build Status](https://drone.modem7.com/api/badges/modem7/hastebin/status.svg)](https://drone.modem7.com/modem7/hastebin)
+![Docker Pulls](https://img.shields.io/docker/pulls/modem7/hastebin) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/modem7/hastebin) [![Build Status](https://drone.modem7.com/api/badges/modem7/hastebin/status.svg?ref=refs/heads/master)](https://drone.modem7.com/modem7/hastebin)
 
 This repository provides the missing tagged releases for `haste-server`. It is
 built [continuously](https://drone.friedl.net/container/hastebin-build/) from
