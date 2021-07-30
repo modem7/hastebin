@@ -13,7 +13,6 @@ RUN apk -U upgrade \
   && npm install \
   && npm cache clean --force \
   && apk del git \
-  && apk --no-cache add curl \
   && rm -rf /var/lib/apk/* /var/cache/apk/* \
   && chmod +x /usr/local/bin/run.sh
 
@@ -27,5 +26,5 @@ EXPOSE 7777
 
 ENTRYPOINT ["run.sh"]
 
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s \
-    --retries=3 CMD [ "curl" , "-f" "localhost:7777", "||", "exit", "1"]
+#HEALTHCHECK --interval=30s --timeout=30s --start-period=5s \
+#    --retries=3 CMD [ "curl" , "-f" "localhost:7777", "||", "exit", "1"]
