@@ -14,8 +14,8 @@ steps:
     repo: modem7/hastebin
     tags: latest
     platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8
-    # purge: true
-    # cache_from: "modem7/hastebin:latest"
+    purge: true
+    cache_from: "modem7/hastebin:latest"
     username:
       from_secret: docker_username
     password:
@@ -49,8 +49,8 @@ steps:
     repo: modem7/hastebin
     tags: stable
     platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8
-    # purge: true
-    # cache_from: "modem7/hastebin:stable"
+    purge: true
+    cache_from: "modem7/hastebin:stable"
     username:
       from_secret: docker_username
     password:
