@@ -25,11 +25,11 @@ steps:
     build-args:
       - HASTEBIN_VERSION=master
 
-# trigger:
-  # event:
-  # - cron
-  # cron:
-  # - hastebin_latest
+trigger:
+  event:
+  - cron
+  cron:
+  - hastebin_latest
 
 ---
 
@@ -60,8 +60,8 @@ steps:
     build-args:
       - HASTEBIN_VERSION=master
 
-# trigger:
-  # event:
-  # - cron
-  # cron:
-  # - hastebin_stable
+trigger:
+  event:
+  - cron
+  cron:
+  - hastebin_stable
