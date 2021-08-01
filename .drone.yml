@@ -8,13 +8,13 @@ platform:
 
 steps:
 - name: publish
-  image: plugins/docker
+  image: thegeeklab/drone-docker-buildx
   privileged: true
   settings:
     repo: modem7/hastebin
     tags: latest
     platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8
-    purge: true
+    # purge: true
     # cache_from: "modem7/hastebin:latest"
     username:
       from_secret: docker_username
@@ -43,13 +43,13 @@ platform:
 
 steps:
 - name: publish
-  image: plugins/docker
+  image: thegeeklab/drone-docker-buildx
   privileged: true
   settings:
     repo: modem7/hastebin
     tags: stable
     platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8
-    purge: true
+    # purge: true
     # cache_from: "modem7/hastebin:stable"
     username:
       from_secret: docker_username
