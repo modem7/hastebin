@@ -13,7 +13,11 @@ steps:
   settings:
     repo: modem7/hastebin
     tags: latest
-    platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8
+    platforms: # if it doesn't work run docker run --privileged --rm tonistiigi/binfmt --install all
+      - linux/amd64
+      - linux/arm/v6
+      - linux/arm/v7
+      - linux/arm64/v8
     purge: true
     compress: true
     cache_from: "modem7/hastebin:latest"
@@ -57,7 +61,11 @@ steps:
   settings:
     repo: modem7/hastebin
     tags: stable
-    platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8
+    platforms: # if it doesn't work run docker run --privileged --rm tonistiigi/binfmt --install all
+      - linux/amd64
+      - linux/arm/v6
+      - linux/arm/v7
+      - linux/arm64/v8
     purge: true
     compress: true
     cache_from: "modem7/hastebin:stable"
