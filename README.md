@@ -30,6 +30,7 @@ as well be considered a 1.x release at this point in time.
 * Easy to get started
 * Tested and works well with [podman](https://podman.io/) too
 
+# Tags
 | Tag | Description |
 | :----: | --- |
 | Latest | Automatically built every week. |
