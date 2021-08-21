@@ -121,7 +121,7 @@ contains all the pastes of your `hastebin` instance (if the default file-based
 storage is used). To persist the volume you can start the container like this:
 
 ```sh
-docker run -d -p7777:7777 -v /var/hastebin:/app/data modem7/hastebin:latest
+docker run -d -p 7777:7777 -v /var/hastebin:/app/data modem7/hastebin:latest
 ```
 
 where `/var/hastebin` is the local folder outside the container and `/app/data`
