@@ -30,9 +30,10 @@ as well be considered a 1.x release at this point in time.
 * Easy to get started
 * Tested and works well with [podman](https://podman.io/) too
 
-# Tags
-* latest: built on a weekly basis from master
-* stable: built on a yearly basis from master
+| Tag | Description |
+| :----: | --- |
+| Latest | Automatically built every week. |
+| Stable | Automatically built every year. |
 
 # Run
 The simplest way to try out this `hastebin` build is to 
