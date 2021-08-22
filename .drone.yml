@@ -7,6 +7,13 @@ platform:
   arch: amd64
 
 steps:
+- name: Lint Dockerfile
+  image: hadolint/hadolint:latest-alpine
+  pull: if-not-exists
+  commands:
+    - hadolint --version
+    - hadolint latest/Dockerfile*
+
 - name: publish
   image: thegeeklab/drone-docker-buildx
   privileged: true
@@ -55,6 +62,13 @@ platform:
   arch: amd64
 
 steps:
+- name: Lint Dockerfile
+  image: hadolint/hadolint:latest-alpine
+  pull: if-not-exists
+  commands:
+    - hadolint --version
+    - hadolint stable/Dockerfile*
+
 - name: publish
   image: thegeeklab/drone-docker-buildx
   privileged: true
