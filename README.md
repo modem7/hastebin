@@ -33,7 +33,7 @@ as well be considered a 1.x release at this point in time.
 # Tags
 | Tag | Description |
 | :----: | --- |
-| Latest | Automatically built every week. |
+| Latest | Automatically built every month. |
 | Stable | Automatically built every year. |
 
 # Run
@@ -65,7 +65,7 @@ services:
 # Configuration
 ## Default
 The default configuration (i.e. what goes into the
-[`config.json`](https://github.com/seejohnrun/haste-server/blob/master/config.js))
+[`config.json`](https://github.com/modem7/hastebin/blob/master/latest/config.js))
 for this `hastebin` build is intentionally simple. It uses reasonable defaults
 and stores it's data into a directory located at `/app/data` in the container.
 For personal and small scale usage it may be sufficient to just run the image
@@ -108,7 +108,7 @@ without any further configuration.
 ## Custom
 For more advanced usage, create your own `config.js` with your settings
 according to
-[haste-server](https://github.com/seejohnrun/haste-server/blob/master/README.md).
+[haste-server](https://github.com/modem7/hastebin/blob/master/README.md).
 You can then derive your own docker image with your custom configuration like so:
 
 ```docker
