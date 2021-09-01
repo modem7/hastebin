@@ -6,6 +6,6 @@ set -xe
 
 node ./docker-entrypoint.js > ./config.js
 
-chown -R ${PUID}:$PGID /usr/src/app
+# chown -R ${PUID}:$PGID /usr/src/app
 
 exec "$@"
