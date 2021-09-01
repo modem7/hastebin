@@ -42,11 +42,11 @@ steps:
   when:
     status: [ success, failure ]
 
-trigger:
-  event:
-  - cron
-  cron:
-  - hastebin_latest
+# trigger:
+  # event:
+  # - cron
+  # cron:
+  # - hastebin_latest
 
 ---
 
@@ -94,11 +94,11 @@ steps:
   when:
     status: [ success, failure ]
 
-trigger:
-  event:
-  - cron
-  cron:
-  - hastebin_stable
+# trigger:
+  # event:
+  # - cron
+  # cron:
+  # - hastebin_stable
 
 ---
 
@@ -147,8 +147,8 @@ steps:
   when:
     status: [ success, failure ]
 
-trigger:
-  event:
-  - cron
-  cron:
-  - hastebin_legacy
+# trigger:
+  # event:
+  # - cron
+  # cron:
+  # - hastebin_legacy
