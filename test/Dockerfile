@@ -2,7 +2,8 @@ FROM node:lts-alpine
 
 RUN mkdir -p /usr/src/app && \
     chown node:node /usr/src/app && \
-    apk add --no-cache bash curl
+    apk add --no-cache curl
+    # apk add --no-cache bash curl
 
 USER node:node 
 
@@ -55,7 +56,7 @@ ENV DOCUMENTS=about=./about.md
 
 EXPOSE ${PORT}
 STOPSIGNAL SIGINT
-ENTRYPOINT [ "/bin/bash", "docker-entrypoint.sh" ]
+ENTRYPOINT [ "/bin/sh", "docker-entrypoint.sh" ]
 
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s \
     --retries=3 CMD [ "curl" , "-f" "localhost:${PORT}", "||", "exit", "1"]
