@@ -12,7 +12,8 @@ COPY --chown=node:node . .
 RUN npm install --no-optional && \
     npm install --no-optional pg@8.7.1 && \
     npm install --no-optional rethinkdbdash@2.3.31 && \
-    npm cache clean --force
+    npm cache clean --force && \
+    apk add --no-cache bash
 
 ENV STORAGE_TYPE=file \
     STORAGE_HOST= \
