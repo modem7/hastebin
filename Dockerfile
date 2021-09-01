@@ -2,9 +2,7 @@ FROM node:lts-alpine
 
 RUN mkdir -p /usr/src/app && \
     chown node:node /usr/src/app && \
-    apk add --no-cache \
-            curl \
-            su-exec
+    apk add --no-cache curl
 
 USER node:node 
 
