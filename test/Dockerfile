@@ -14,6 +14,9 @@ COPY --chown=node:node . .
 RUN npm install --no-optional && \
     npm install --no-optional pg@8.7.1 && \
     npm install --no-optional rethinkdbdash@2.3.31 && \
+    npm install --no-optional redis@3.1.2 && \
+    npm install --no-optional memcached@2.2.2 && \
+    npm install --no-optional aws-sdk@2.980.0 && \
     npm cache clean --force    
 
 ENV STORAGE_TYPE=file \
