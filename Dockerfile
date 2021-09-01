@@ -18,9 +18,7 @@ RUN npm install --no-optional && \
     npm install --no-optional redis && \
     npm install --no-optional memcached && \
     npm install --no-optional aws-sdk && \
-    npm cache clean --force
-
-ENV PUID=1000 GUID=1000
+    npm cache clean --force    
 
 ENV STORAGE_TYPE=file \
     STORAGE_HOST= \
@@ -66,4 +64,4 @@ ENTRYPOINT [ "/bin/sh", "docker-entrypoint.sh" ]
 
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s \
     --retries=3 CMD curl -f localhost:${PORT} || exit 1
-CMD ["su-exec", "${PUID}:$PGID", "npm", "start"]
+CMD ["npm", "start"]
