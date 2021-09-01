@@ -1,4 +1,4 @@
-FROM node:lts-stretch
+FROM node:lts-alpine
 
 RUN mkdir -p /usr/src/app && \
     chown node:node /usr/src/app
@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 
 COPY --chown=node:node . . 
 
-RUN npm install && \
+RUN npm install --no-optional && \
     npm install --no-optional pg@8.7.1 && \
     npm install --no-optional rethinkdbdash@2.3.31 && \
     npm cache clean --force
