@@ -1,7 +1,8 @@
 FROM node:lts-alpine
 
 RUN mkdir -p /usr/src/app && \
-    chown node:node /usr/src/app
+    chown node:node /usr/src/app && \
+    apk add --no-cache bash curl
 
 USER node:node 
 
@@ -12,8 +13,7 @@ COPY --chown=node:node . .
 RUN npm install --no-optional && \
     npm install --no-optional pg@8.7.1 && \
     npm install --no-optional rethinkdbdash@2.3.31 && \
-    npm cache clean --force && \
-    apk add --no-cache bash
+    npm cache clean --force    
 
 ENV STORAGE_TYPE=file \
     STORAGE_HOST= \
@@ -55,7 +55,7 @@ ENV DOCUMENTS=about=./about.md
 
 EXPOSE ${PORT}
 STOPSIGNAL SIGINT
-ENTRYPOINT [ "bash", "docker-entrypoint.sh" ]
+ENTRYPOINT [ "/bin/sh", "docker-entrypoint.sh" ]
 
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s \
     --retries=3 CMD [ "curl" , "-f" "localhost:${PORT}", "||", "exit", "1"]
