@@ -12,118 +12,7 @@ steps:
   pull: if-not-exists
   commands:
     - hadolint --version
-    - hadolint latest/Dockerfile*
-
-- name: publish
-  image: thegeeklab/drone-docker-buildx
-  privileged: true
-  settings:
-    repo: modem7/hastebin
-    tags: latest
-    platforms: # if it doesn't work run docker run --privileged --rm tonistiigi/binfmt --install all
-      - linux/amd64
-      - linux/arm/v6
-      - linux/arm/v7
-      - linux/arm64/v8
-    purge: true
-    squash: true
-    compress: true
-    cache_from: "modem7/hastebin:latest"
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
-    dockerfile: latest/Dockerfile
-    context: latest/
-    build-args:
-      - HASTEBIN_VERSION=master
-
-- name: slack
-  image: themaz/drone-slack
-  settings:
-    webhook:
-      from_secret: slack_hook
-  when:
-    status: [ success, failure ]
-
-trigger:
-  event:
-  - cron
-  cron:
-  - hastebin_latest
-
----
-
-kind: pipeline
-type: docker
-name: stable 
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: Lint Dockerfile
-  image: hadolint/hadolint:latest-alpine
-  pull: if-not-exists
-  commands:
-    - hadolint --version
-    - hadolint stable/Dockerfile*
-
-- name: publish
-  image: thegeeklab/drone-docker-buildx
-  privileged: true
-  settings:
-    repo: modem7/hastebin
-    tags: stable
-    platforms: # if it doesn't work run docker run --privileged --rm tonistiigi/binfmt --install all
-      - linux/amd64
-      - linux/arm/v6
-      - linux/arm/v7
-      - linux/arm64/v8
-    purge: true
-    compress: true
-    cache_from: "modem7/hastebin:stable"
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
-    dockerfile: stable/Dockerfile
-    context: stable/
-    build-args:
-      - HASTEBIN_VERSION=master
-
-- name: slack
-  image: themaz/drone-slack
-  settings:
-    webhook:
-      from_secret: slack_hook
-  when:
-    status: [ success, failure ]
-
-trigger:
-  event:
-  - cron
-  cron:
-  - hastebin_stable
-
----
-
-kind: pipeline
-type: docker
-name: test 
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: Lint Dockerfile
-  image: hadolint/hadolint:latest-alpine
-  pull: if-not-exists
-  commands:
-    - hadolint --version
-    - hadolint test/Dockerfile*
+    - hadolint Dockerfile*
 
 - name: publish
   image: thegeeklab/drone-docker-buildx
@@ -133,8 +22,8 @@ steps:
     tags: test
     platforms: # if it doesn't work run docker run --privileged --rm tonistiigi/binfmt --install all
       - linux/amd64
-      # - linux/arm/v7
-      # - linux/arm64/v8
+      - linux/arm/v7
+      - linux/arm64/v8
     purge: true
     compress: true
     cache_from: "modem7/hastebin:test"
@@ -142,8 +31,6 @@ steps:
       from_secret: docker_username
     password:
       from_secret: docker_password
-    dockerfile: test/Dockerfile
-    context: test/
 
 - name: slack
   image: themaz/drone-slack
@@ -157,4 +44,54 @@ steps:
   # event:
   # - cron
   # cron:
-  # - hastebin_test
+  # - hastebin_latest
+
+# ---
+
+# kind: pipeline
+# type: docker
+# name: stable 
+
+# platform:
+  # os: linux
+  # arch: amd64
+
+# steps:
+# - name: Lint Dockerfile
+  # image: hadolint/hadolint:latest-alpine
+  # pull: if-not-exists
+  # commands:
+    # - hadolint --version
+    # - hadolint Dockerfile*
+
+# - name: publish
+  # image: thegeeklab/drone-docker-buildx
+  # privileged: true
+  # settings:
+    # repo: modem7/hastebin
+    # tags: stable
+    # platforms: # if it doesn't work run docker run --privileged --rm tonistiigi/binfmt --install all
+      # - linux/amd64
+      # - linux/arm/v7
+      # - linux/arm64/v8
+    # purge: true
+    # compress: true
+    # cache_from: "modem7/hastebin:stable"
+    # username:
+      # from_secret: docker_username
+    # password:
+      # from_secret: docker_password
+
+# - name: slack
+  # image: themaz/drone-slack
+  # settings:
+    # webhook:
+      # from_secret: slack_hook
+  # when:
+    # status: [ success, failure ]
+
+# trigger:
+  # event:
+  # - cron
+  # cron:
+  # - hastebin_stable

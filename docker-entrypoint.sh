@@ -2,8 +2,10 @@
 
 # We use this file to translate environmental variables to .env files used by the application
 
-set -e
+set -xe
 
 node ./docker-entrypoint.js > ./config.js
+
+chown -R ${PUID}:$PGID /usr/src/app
 
 exec "$@"

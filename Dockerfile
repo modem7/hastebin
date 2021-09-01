@@ -2,8 +2,9 @@ FROM node:lts-alpine
 
 RUN mkdir -p /usr/src/app && \
     chown node:node /usr/src/app && \
-    apk add --no-cache curl
-    # apk add --no-cache bash curl
+    apk add --no-cache \
+            curl \
+            su-exec
 
 USER node:node 
 
@@ -17,7 +18,9 @@ RUN npm install --no-optional && \
     npm install --no-optional redis && \
     npm install --no-optional memcached && \
     npm install --no-optional aws-sdk && \
-    npm cache clean --force    
+    npm cache clean --force
+
+ENV PUID=1005 GUID=1005    
 
 ENV STORAGE_TYPE=file \
     STORAGE_HOST= \
@@ -63,4 +66,4 @@ ENTRYPOINT [ "/bin/sh", "docker-entrypoint.sh" ]
 
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s \
     --retries=3 CMD curl -f localhost:${PORT} || exit 1
-CMD ["npm", "start"]
+CMD ["su-exec", "${PUID}:$PGID", "npm", "start"]
