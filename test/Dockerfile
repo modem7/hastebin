@@ -10,21 +10,20 @@ WORKDIR /usr/src/app
 COPY --chown=node:node . . 
 
 RUN npm install && \
-    npm install redis@3.1.2 && \
-    npm install pg@8.7.1 && \
-    npm install rethinkdbdash@2.3.31 && \
+    npm install --no-optional pg@8.7.1 && \
+    npm install --no-optional rethinkdbdash@2.3.31 && \
     npm cache clean --force
 
-ENV STORAGE_TYPE=redis \
-    STORAGE_HOST=127.0.0.1 \
-    STORAGE_PORT=6379 \
+ENV STORAGE_TYPE=file \
+    STORAGE_HOST= \
+    STORAGE_PORT= \
     STORAGE_EXPIRE_SECONDS= \
     STORAGE_DB=2 \
     STORAGE_AWS_BUCKET= \
     STORAGE_AWS_REGION= \
     STORAGE_USENAMER= \
     STORAGE_PASSWORD= \
-    STORAGE_FILEPATH= 
+    STORAGE_FILEPATH=./data
 
 ENV LOGGING_LEVEL=verbose \
     LOGGING_TYPE=Console \
