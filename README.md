@@ -1,5 +1,9 @@
 # Haste
 
+![Docker Pulls](https://img.shields.io/docker/pulls/modem7/hastebin) 
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/modem7/hastebin) 
+[![Build Status](https://drone.modem7.com/api/badges/modem7/hastebin/status.svg?ref=refs/heads/master)](https://drone.modem7.com/modem7/hastebin)
+
 Haste is an open-source pastebin software written in node.js, which is easily
 installable in any network.  It can be backed by either redis or filesystem,
 and has a very easy adapter interface for other stores.  A publicly available
@@ -20,11 +24,12 @@ to do things like:
 which will output a URL to share containing the contents of `cat something`'s
 STDOUT.  Check the README there for more details and usages.
 
-## Tested Browsers
-
-* Firefox 8
-* Chrome 17
-* Safari 5.3
+# Tags
+| Tag | Description |
+| :----: | --- |
+| Latest | Automatically built every month. |
+| Stable | Automatically built every year. |
+| Legacy | Automatically built every month. |
 
 ## Installation
 
