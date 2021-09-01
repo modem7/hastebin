@@ -12,7 +12,8 @@ COPY --chown=node:node . .
 RUN npm install && \
     npm install redis@3.1.2 && \
     npm install pg@8.7.1 && \
-    npm install rethinkdbdash@2.3.31
+    npm install rethinkdbdash@2.3.31 && \
+    npm cache clean
 
 ENV STORAGE_TYPE=redis \
     STORAGE_HOST=127.0.0.1 \
