@@ -19,7 +19,9 @@ steps:
   privileged: true
   settings:
     repo: modem7/hastebin
-    tags: latest
+    tags: 
+    # - latest
+    - test
     platforms: # if it doesn't work run docker run --privileged --rm tonistiigi/binfmt --install all
       - linux/amd64
       - linux/arm/v7
