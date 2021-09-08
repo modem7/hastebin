@@ -29,7 +29,7 @@ STDOUT.  Check the README there for more details and usages.
 | :----: | --- |
 | Latest | Automatically built every month. Modified version of https://github.com/toptal/haste-server |
 | Stable | Automatically built every year. Modified version of https://github.com/toptal/haste-server |
-| Legacy | Automatically built every month from https://github.com/seejohnrun/haste-server.git. |
+| Legacy | Automatically built every month from https://github.com/seejohnrun/haste-server.git |
 
 ## Installation
 
