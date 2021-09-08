@@ -29,7 +29,7 @@ STDOUT.  Check the README there for more details and usages.
 | :----: | --- |
 | Latest | Automatically built every month. |
 | Stable | Automatically built every year. |
-| Legacy | Automatically built every month. |
+| Legacy | Automatically built every month from https://github.com/seejohnrun/haste-server.git. |
 
 ## Installation
 
