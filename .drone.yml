@@ -44,11 +44,11 @@ steps:
   when:
     status: [ success, failure ]
 
-# trigger:
-  # event:
-  # - cron
-  # cron:
-  # - hastebin_latest
+trigger:
+  event:
+  - cron
+  cron:
+  - hastebin_latest
 
 ---
 
