@@ -11,3 +11,8 @@ updates:
       interval: "daily"
     labels:
       - "dependencies"
+
+  - package-ecosystem: "docker" # See documentation for possible values
+    directory: "/Full" # Location of package manifests
+    schedule:
+      interval: "daily"
