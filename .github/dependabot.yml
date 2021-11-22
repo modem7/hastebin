@@ -11,8 +11,12 @@ updates:
       interval: "daily"
     labels:
       - "dependencies"
+    assignees:
+      - "modem7"
 
   - package-ecosystem: "docker" # See documentation for possible values
     directory: "/Full" # Location of package manifests
     schedule:
       interval: "daily"
+    assignees:
+      - "modem7"
