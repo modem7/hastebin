@@ -11,12 +11,11 @@ WORKDIR /usr/src/app
 COPY --chown=node:node . . 
 
 RUN npm install --no-optional && \
-    npm install --no-optional pg && \
-    npm install --no-optional rethinkdbdash && \
-    npm install --no-optional redis && \
-    npm install --no-optional memcached && \
-    npm install --no-optional aws-sdk && \
-    npm cache clean --force    
+    npm install --no-optional redis@0.8.1 && \
+    npm install --no-optional pg@4.1.1 && \
+    npm install --no-optional memcached@2.2.2 && \
+    npm install --no-optional aws-sdk@2.738.0 && \
+    npm install --no-optional rethinkdbdash@2.3.31
 
 ENV STORAGE_TYPE=file \
     STORAGE_HOST= \
@@ -43,7 +42,7 @@ ENV HOST=0.0.0.0 \
 ENV KEYGENERATOR_TYPE=phonetic \
     KEYGENERATOR_KEYSPACE=
 
-ENV RATELIMITS_NORMAL_TOTAL_REQUESTS=500 \
+ENV RATELIMITS_NORMAL_TOTAL_REQUESTS=500\
     RATELIMITS_NORMAL_EVERY_MILLISECONDS=60000 \
     RATELIMITS_WHITELIST_TOTAL_REQUESTS= \
     RATELIMITS_WHITELIST_EVERY_MILLISECONDS=  \

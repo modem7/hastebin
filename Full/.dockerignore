@@ -4,8 +4,3 @@ node_modules
 *.swo
 data
 *.DS_Store
-.git
-.drone*
-LICENCE
-README
-docker-compose.yaml
