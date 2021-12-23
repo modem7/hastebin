@@ -5,14 +5,14 @@
 
 version: 2
 updates:
-  # - package-ecosystem: "npm" # See documentation for possible values
-    # directory: "/Full" # Location of package manifests
-    # schedule:
-      # interval: "daily"
-    # labels:
-      # - "dependencies"
-    # assignees:
-      # - "modem7"
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/Full" # Location of package manifests
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+    assignees:
+      - "modem7"
 
   - package-ecosystem: "docker" # See documentation for possible values
     directory: "/Full" # Location of package manifests
