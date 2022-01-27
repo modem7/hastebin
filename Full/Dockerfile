@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:alpine3.15
 
 RUN mkdir -p /usr/src/app && \
     chown node:node /usr/src/app && \
