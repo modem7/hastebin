@@ -27,8 +27,7 @@ STDOUT.  Check the README there for more details and usages.
 # Tags
 | Tag | Description |
 | :----: | --- |
-| Latest | Automatically built every month. Modified version of https://github.com/toptal/haste-server |
-| Stable | Automatically built every year. Modified version of https://github.com/toptal/haste-server |
+| Latest | Modified version of https://github.com/toptal/haste-server |
 
 ## Installation
 
