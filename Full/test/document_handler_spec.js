@@ -1,5 +1,4 @@
 /* global describe, it */
-const proxyquire = require('proxyquire');
 
 var assert = require('assert');
 

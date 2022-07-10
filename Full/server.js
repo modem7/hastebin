@@ -1,17 +1,18 @@
+#!/usr/bin/env node
 var http = require('http');
 var fs = require('fs');
 
-var uglify = require('uglify-js');
 var winston = require('winston');
 var connect = require('connect');
 var route = require('connect-route');
 var connect_st = require('st');
 var connect_rate_limit = require('connect-ratelimit');
+var cors = require('cors');
 
 var DocumentHandler = require('./lib/document_handler');
 
 // Load the configuration and set some defaults
-const configPath = process.argv.length <= 2 ? 'config.js' : process.argv[2];
+const configPath = process.argv.length <= 2 ? 'config.json' : process.argv[2];
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 config.port = process.env.PORT || config.port || 7777;
 config.host = process.env.HOST || config.host || 'localhost';
@@ -54,21 +55,6 @@ else {
   preferredStore = new Store(config.storage);
 }
 
-// Compress the static javascript assets
-if (config.recompressStaticAssets) {
-  var list = fs.readdirSync('./static');
-  for (var j = 0; j < list.length; j++) {
-    var item = list[j];
-    if ((item.indexOf('.js') === item.length - 3) && (item.indexOf('.min.js') === -1)) {
-      var dest = item.substring(0, item.length - 3) + '.min' + item.substring(item.length - 3);
-      var orig_code = fs.readFileSync('./static/' + item, 'utf8');
-
-      fs.writeFileSync('./static/' + dest, uglify.minify(orig_code).code, 'utf8');
-      winston.info('compressed ' + item + ' into ' + dest);
-    }
-  }
-}
-
 // Send the static documents into the preferred store, skipping expirations
 var path, data;
 for (var name in config.documents) {
@@ -100,6 +86,10 @@ var documentHandler = new DocumentHandler({
 });
 
 var app = connect();
+
+if (config.cors) {
+  app.use(cors());
+}
 
 // Rate limit all requests
 if (config.rateLimits) {

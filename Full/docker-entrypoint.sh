@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 # We use this file to translate environmental variables to .env files used by the application
 
-set -xe
+set -e
 
 node ./docker-entrypoint.js > ./config.js
 

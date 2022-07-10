@@ -1,12 +1,11 @@
 /* global it, describe, afterEach */
-const proxyquire = require('proxyquire');
 
 var assert = require('assert');
 
 var winston = require('winston');
 winston.remove(winston.transports.Console);
 
-var RedisDocumentStore = proxyquire('../lib/document_stores/redis', { 'redis': require('redis-mock') });
+var RedisDocumentStore = require('../lib/document_stores/redis');
 
 describe('redis_document_store', function() {
 

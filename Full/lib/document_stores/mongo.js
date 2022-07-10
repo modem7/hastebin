@@ -5,7 +5,7 @@ var MongoClient = require('mongodb').MongoClient,
 
 var MongoDocumentStore = function (options) {
     this.expire = options.expire;
-    this.connectionUrl = process.env.DATABASE_URl || options.connectionUrl;
+    this.connectionUrl = options.connectionUrl || process.env.DATABASE_URL;
 };
 
 MongoDocumentStore.prototype.set = function (key, data, callback, skipExpire) {

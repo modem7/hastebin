@@ -165,12 +165,11 @@ Once you've done that, your config section should look like:
 ``` json
 {
   "type": "mongodb",
-  "connectionUrl": "mongodb://localhost:27017",
-  "connectionName": "database"
+  "connectionUrl": "mongodb://localhost:27017/database"
 }
 ```
 
-You can also just set the environment variable for `DATABASE_URL` to your server connection url and `DATABASE_NAME` for your database name.
+You can also just set the environment variable for `DATABASE_URL` to your database connection url.
 
 Unlike with postgres you do NOT have to create the table in your mongo database prior to running.
 

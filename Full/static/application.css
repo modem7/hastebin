@@ -55,7 +55,7 @@ textarea {
 
 /* key */
 
-#key {
+#key, .hastebin--embedded {
 	position: fixed;
 	top: 0px;
 	right: 0px;
@@ -91,6 +91,7 @@ textarea {
 	height: 37px;
 	display: inline-block;
 	position: relative;
+	outline: none;
 }
 
 #box2 .link embed {
@@ -153,6 +154,17 @@ textarea {
 #box2 .function.enabled.twitter { background-position: -153px center; }
 #box2 .function.enabled.twitter:hover { background-position: -153px bottom; }
 #box2 .button-picture{ border-width: 0; font-size: inherit; }
+
+#box2 .function.ongoing.save { 
+	background-position: -5px center;
+	animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+	50% {
+		opacity: 0.5;
+	}
+}
 
 #messages {
 	position:fixed;
