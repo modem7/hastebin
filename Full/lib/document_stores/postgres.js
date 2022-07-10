@@ -7,13 +7,10 @@ const {Pool} = require('pg');
 
 // A postgres document store
 var PostgresDocumentStore = function (options) {
-  this.expireJS = options.expire;
+  this.expireJS = parseInt(options.expire, 10);
 
-  const connectionString = options.connectionUrl || process.env.DATABASE_URL,
-        ssl = options.ssl;
-  if (!connectionString)
-    console.error("no 'connectionUrl' in postgres store configuration");
-  this.pool = new Pool({connectionString, ssl});
+  const connectionString = process.env.DATABASE_URL || options.connectionUrl;
+  this.pool = new Pool({connectionString});
 };
 
 PostgresDocumentStore.prototype = {
